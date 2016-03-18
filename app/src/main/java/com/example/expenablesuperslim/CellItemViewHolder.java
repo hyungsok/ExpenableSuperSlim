@@ -16,6 +16,10 @@ public class CellItemViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(CellItem item) {
-        mIngredientTextView.setText(item.mName);
+        if (item.mCellType.equals(CellItem.CellType.GROUP)) {
+            mIngredientTextView.setText(" > " + item.mName);
+        } else {
+            mIngredientTextView.setText(" - " + item.mName);
+        }
     }
 }
